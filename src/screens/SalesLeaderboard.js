@@ -91,7 +91,9 @@ const SalesLeaderboard = ({
                     </div>
                   </div>
                   <div className="col-md-8 top-sales-box-member">
-                    <h5>{topPerson.name}</h5>
+                    <h5>
+                      <u>{topPerson.name}</u>
+                    </h5>
                     <div className="amounts">
                       <div>
                         <h6>Booked</h6>
@@ -225,7 +227,6 @@ const SalesLeaderboard = ({
                 </h4>
               </div>
             </div>
-
             {!salesMemberLoading ? (
               <>
                 <div className="row">
