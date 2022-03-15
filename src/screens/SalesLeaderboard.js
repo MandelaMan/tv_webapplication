@@ -77,20 +77,20 @@ const SalesLeaderboard = ({
               </div>
             </div>
             <div className="row py-3">
-              <div className="col-md-4">
-                <div className="top-sales-box">
-                  <ProfilePic picture={topPerson.empID} />
-                  <div className="trophy">
-                    <img src={trophy} alt="" />
+              {topPerson.amount > 0 && topPerson.paid ? (
+                <>
+                  <div className="col-md-4">
+                    <div className="top-sales-box">
+                      <ProfilePic picture={topPerson.empID} />
+                      <div className="trophy">
+                        <img src={trophy} alt="" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="col-md-8 top-sales-box-member">
-                <h5>{topPerson.name}</h5>
-                <div className="amounts">
-                  <div>
-                    {topPerson.amount > 0 ? (
-                      <>
+                  <div className="col-md-8 top-sales-box-member">
+                    <h5>{topPerson.name}</h5>
+                    <div className="amounts">
+                      <div>
                         <h6>Booked</h6>
                         <p>
                           $&nbsp;
@@ -98,12 +98,8 @@ const SalesLeaderboard = ({
                             ? separator(topPerson.amount)
                             : topPerson.amount}
                         </p>
-                      </>
-                    ) : null}
-                  </div>
-                  <div>
-                    {topPerson.paid > 0 ? (
-                      <>
+                      </div>
+                      <div>
                         <h6>Paid</h6>
                         <p>
                           $&nbsp;
@@ -111,11 +107,15 @@ const SalesLeaderboard = ({
                             ? separator(topPerson.paid)
                             : topPerson.paid}
                         </p>
-                      </>
-                    ) : null}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </>
+              ) : (
+                <>
+                  <div className="col-md-12 mx-7">loading...</div>
+                </>
+              )}
             </div>
           </div>
           <div className="boxed">
