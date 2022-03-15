@@ -1,0 +1,256 @@
+import React from "react";
+import trophy from "../images/icons/trophy.png";
+import ClosedBusiness from "../components/charts/ClosedBusiness";
+import { separator, remainingDays } from "../functions/helpers";
+import ProfilePic from "../components/reusables/ProfilePic";
+import { BouncingBalls } from "react-cssfx-loading";
+// import BarWave from "react-cssfx-loading/lib/BarWave";
+
+const SalesLeaderboard = ({
+  salesMembers,
+  targetTotal,
+  targetAchieved,
+  paidBusiness,
+  monthValues,
+  topPerson,
+  loading,
+  chartLoading,
+  salesMemberLoading,
+  generalSalesInfo,
+}) => {
+  const getMonthName = () => {
+    const date = new Date();
+    const month = date.toLocaleString("default", { month: "long" });
+
+    return month;
+  };
+
+  const getYear = () => {
+    const year = new Date().getFullYear();
+
+    return year;
+  };
+
+  const getPreviousMonth = () => {
+    const date = new Date();
+    date.setMonth(date.getMonth() - 1);
+    const previousMonth = date.toLocaleString("default", { month: "long" });
+
+    return previousMonth;
+  };
+
+  const getPreviousYear = () => {
+    const currentYear = new Date().getFullYear(); // 2020
+
+    const previousYear = currentYear - 1;
+
+    return previousYear;
+  };
+
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-4">
+          <div className="boxed">
+            <div className="row">
+              <div className="col-md-12">
+                <h4>Closed business chart for 2022</h4>
+              </div>
+            </div>
+            {!chartLoading ? (
+              <div className="row">
+                <div className="col-md-12">
+                  <ClosedBusiness monthValues={monthValues} />
+                </div>
+              </div>
+            ) : null}
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="boxed">
+            <div className="row">
+              <div className="col-md-12">
+                <h4>
+                  Top Sales Member for {getPreviousMonth()}&nbsp;
+                  {getYear()}
+                </h4>
+              </div>
+            </div>
+            <div className="row py-3">
+              <div className="col-md-4">
+                <div className="top-sales-box">
+                  <ProfilePic picture={topPerson.empID} />
+                  <div className="trophy">
+                    <img src={trophy} alt="" />
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-8 top-sales-box-member">
+                <h5>{topPerson.name}</h5>
+                <div className="amounts">
+                  <div>
+                    <h6>Booked</h6>
+                    <p>
+                      $&nbsp;
+                      {topPerson.amount > 0
+                        ? separator(topPerson.amount)
+                        : topPerson.amount}
+                    </p>
+                  </div>
+                  <div>
+                    <h6>Paid</h6>
+                    <p>
+                      $&nbsp;
+                      {topPerson.paid > 0
+                        ? separator(topPerson.paid)
+                        : topPerson.paid}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="boxed">
+            <div className="row">
+              <div className="col-md-12">
+                <h4>
+                  Broker/Direct Overall Set Target for {getMonthName()}&nbsp;
+                  {getYear()}
+                </h4>
+                <h3 className="successed">$&nbsp;{separator(targetTotal)}</h3>
+              </div>
+            </div>
+          </div>
+          <div className="boxed">
+            <div className="row">
+              <div className="col-md-6">
+                <h4>Booked business</h4>
+                <h3 className="successed">
+                  $&nbsp;{separator(targetAchieved)}
+                </h3>
+              </div>
+              <div className="col-md-6">
+                <h4>Paid business</h4>
+                <h3
+                  // className={`${
+                  //   targetTotal - targetAchieved > 1
+                  //     ? "unsuccesful"
+                  //     : "successed"
+                  // }`}
+                  className="successed"
+                >
+                  $&nbsp;{separator(paidBusiness)}
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div className="boxed">
+            <div className="row">
+              <div className="col-md-12">
+                <h4>Pending amount</h4>
+                <h3 className="unsuccesful">
+                  $&nbsp;{separator(targetTotal - targetAchieved)}
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div className="boxed">
+            <div className="row">
+              <div className="col-md-12">
+                <h4>
+                  {remainingDays() < 1 ? (
+                    <>Target Expiry</>
+                  ) : (
+                    <>Days to target expir</>
+                  )}
+                  y
+                </h4>
+                <h3>
+                  {remainingDays() > 1 && (
+                    <h1 className="successed">
+                      <b>
+                        {remainingDays()}&nbsp;Day{remainingDays() > 1 && "s"}
+                      </b>
+                    </h1>
+                  )}
+                  {remainingDays() < 1 && (
+                    <h1 className="unsuccesful">
+                      <b>Last day</b>
+                    </h1>
+                  )}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="boxed">
+            <div className="row">
+              <div className="col-md-12">
+                <h4>
+                  Business Development Individual Target for {getMonthName()}{" "}
+                  {getYear()}
+                </h4>
+              </div>
+            </div>
+            {!salesMemberLoading ? (
+              <>
+                <div className="row">
+                  <div className="col-md-3"></div>
+                  <div className="col-md-3"></div>
+                  <div className="col-md-3" style={{ textAlign: "left" }}>
+                    <b>
+                      <u>Booked</u>
+                    </b>
+                  </div>
+                  <div className="col-md-3" style={{ textAlign: "center" }}>
+                    <b>
+                      <u>Paid</u>
+                    </b>
+                  </div>
+                </div>
+                {salesMembers
+                  .sort((a, b) => b.amount - a.amount)
+                  .sort((a, b) => b.paid - a.paid)
+                  .sort((a, b) => a.name - b.name)
+                  .map((s, i) => (
+                    <div className="row member-box" key={i}>
+                      <div className="col-md-3">
+                        <ProfilePic picture={s.empID} />
+                      </div>
+                      <div className="col-md-3">
+                        <div className="the_name">
+                          <p>{s.name}</p>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div
+                          className="amounts"
+                          style={{ textAlign: "center" }}
+                        >
+                          <p
+                            className={
+                              s.amount < 1 ? `unsuccesful` : `successed`
+                            }
+                          >
+                            ${separator(s.amount)}
+                          </p>
+                          <p
+                            className={s.paid < 1 ? `unsuccesful` : `successed`}
+                          >
+                            ${separator(s.paid)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SalesLeaderboard;
