@@ -89,22 +89,30 @@ const SalesLeaderboard = ({
                 <h5>{topPerson.name}</h5>
                 <div className="amounts">
                   <div>
-                    <h6>Booked</h6>
-                    <p>
-                      $&nbsp;
-                      {topPerson.amount > 0
-                        ? separator(topPerson.amount)
-                        : topPerson.amount}
-                    </p>
+                    {topPerson.amount > 0 ? (
+                      <>
+                        <h6>Booked</h6>
+                        <p>
+                          $&nbsp;
+                          {topPerson.amount > 0
+                            ? separator(topPerson.amount)
+                            : topPerson.amount}
+                        </p>
+                      </>
+                    ) : null}
                   </div>
                   <div>
-                    <h6>Paid</h6>
-                    <p>
-                      $&nbsp;
-                      {topPerson.paid > 0
-                        ? separator(topPerson.paid)
-                        : topPerson.paid}
-                    </p>
+                    {topPerson.paid > 0 ? (
+                      <>
+                        <h6>Paid</h6>
+                        <p>
+                          $&nbsp;
+                          {topPerson.paid > 0
+                            ? separator(topPerson.paid)
+                            : topPerson.paid}
+                        </p>
+                      </>
+                    ) : null}
                   </div>
                 </div>
               </div>
