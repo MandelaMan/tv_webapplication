@@ -133,7 +133,7 @@ const App = () => {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 10000,
+    autoplaySpeed: 900000,
     fade: true,
   };
 
