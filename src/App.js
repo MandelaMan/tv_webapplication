@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import BusinessDevelopment from "./components/BusinessDevelopment";
-import Brokers from "./components/Brokers";
+import Slider from "react-slick";
+
+// import BusinessDevelopment from "./components/BusinessDevelopment";
+// import Brokers from "./components/Brokers";
 // import Birthdays from "./components/Birthdays";
 // import PreviousMonthBD from "./components/PreviousMonthBD";
-import Slider from "react-slick";
-import LoadScreen from "./components/reusables/LoadScreen";
-import Adverts from "./components/Adverts";
+// import LoadScreen from "./components/reusables/LoadScreen";
+// import Adverts from "./components/Adverts";
+// import Birthday from "./screens/Birthday";
+
 import SalesLeaderboard from "./screens/SalesLeaderboard";
-import Birthday from "./screens/Birthday";
 import Announcments from "./screens/Announcments";
 
 const App = () => {
@@ -52,7 +54,6 @@ const App = () => {
 
     fetch(
       "https://portal.micglobalrisks.com:8082/leaderboard/api/individual-targets"
-      // "https://portal.micglobalrisks.com:8082/leaderboard/api/prev-month-individual-targets"
     )
       .then((response) => response.json())
       .then((data) => {

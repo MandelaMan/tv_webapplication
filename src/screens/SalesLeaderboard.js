@@ -3,7 +3,7 @@ import trophy from "../images/icons/trophy.png";
 import ClosedBusiness from "../components/charts/ClosedBusiness";
 import { separator, remainingDays } from "../functions/helpers";
 import ProfilePic from "../components/reusables/ProfilePic";
-import { BouncingBalls } from "react-cssfx-loading";
+// import { BouncingBalls } from "react-cssfx-loading";
 // import BarWave from "react-cssfx-loading/lib/BarWave";
 
 const SalesLeaderboard = ({
@@ -39,13 +39,13 @@ const SalesLeaderboard = ({
     return previousMonth;
   };
 
-  const getPreviousYear = () => {
-    const currentYear = new Date().getFullYear(); // 2020
+  // const getPreviousYear = () => {
+  //   const currentYear = new Date().getFullYear(); // 2020
 
-    const previousYear = currentYear - 1;
+  //   const previousYear = currentYear - 1;
 
-    return previousYear;
-  };
+  //   return previousYear;
+  // };
 
   return (
     <div className="container-fluid">
