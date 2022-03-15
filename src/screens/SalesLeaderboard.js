@@ -60,13 +60,11 @@ const SalesLeaderboard = ({
                 <h4>Closed business chart for 2022</h4>
               </div>
             </div>
-            {!chartLoading ? (
-              <div className="row">
-                <div className="col-md-12">
-                  <ClosedBusiness monthValues={monthValues} />
-                </div>
+            <div className="row">
+              <div className="col-md-12">
+                <ClosedBusiness monthValues={monthValues} />
               </div>
-            ) : null}
+            </div>
           </div>
         </div>
         <div className="col-md-4">
@@ -105,7 +103,7 @@ const SalesLeaderboard = ({
                         </p>
                       </div>
                       <div>
-                        <h6>Paid</h6>
+                        <h6>Amount paid</h6>
                         <p>
                           $&nbsp;
                           {topPerson.paid > 0
