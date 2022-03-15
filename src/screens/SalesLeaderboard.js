@@ -3,6 +3,7 @@ import trophy from "../images/icons/trophy.png";
 import ClosedBusiness from "../components/charts/ClosedBusiness";
 import { separator, remainingDays } from "../functions/helpers";
 import ProfilePic from "../components/reusables/ProfilePic";
+import ContentLoader from "react-content-loader";
 // import { BouncingBalls } from "react-cssfx-loading";
 // import BarWave from "react-cssfx-loading/lib/BarWave";
 
@@ -18,6 +19,8 @@ const SalesLeaderboard = ({
   salesMemberLoading,
   generalSalesInfo,
 }) => {
+  const memberLoadList = [{}, {}, {}, {}, {}, {}];
+
   const getMonthName = () => {
     const date = new Date();
     const month = date.toLocaleString("default", { month: "long" });
@@ -113,7 +116,28 @@ const SalesLeaderboard = ({
                 </>
               ) : (
                 <>
-                  <div className="col-md-12 mx-7">loading...</div>
+                  <div className="col-md-12 mx-7">
+                    <ContentLoader
+                      height={140}
+                      speed={1}
+                      backgroundColor={"#282c34"}
+                      foregroundColor={"#4e5665"}
+                      viewBox="0 0 300 60"
+                    >
+                      {/* Only SVG shapes */}
+                      <rect x="0" y="0" rx="5" ry="5" width="50" height="50" />
+                      <rect x="60" y="0" rx="5" ry="5" width="130" height="8" />
+                      <rect
+                        x="60"
+                        y="20"
+                        rx="5"
+                        ry="5"
+                        width="100"
+                        height="8"
+                      />
+                      <rect x="60" y="40" rx="5" ry="5" width="70" height="8" />
+                    </ContentLoader>
+                  </div>
                 </>
               )}
             </div>
@@ -201,6 +225,7 @@ const SalesLeaderboard = ({
                 </h4>
               </div>
             </div>
+
             {!salesMemberLoading ? (
               <>
                 <div className="row">
@@ -253,7 +278,34 @@ const SalesLeaderboard = ({
                     </div>
                   ))}
               </>
-            ) : null}
+            ) : (
+              <div className="row">
+                {memberLoadList.map((m, i) => (
+                  <div className="col-12">
+                    <ContentLoader
+                      height={140}
+                      speed={1}
+                      backgroundColor={"#282c34"}
+                      foregroundColor={"#4e5665"}
+                      viewBox="0 0 300 60"
+                    >
+                      {/* Only SVG shapes */}
+                      <rect x="0" y="0" rx="5" ry="5" width="35" height="35" />
+                      <rect x="45" y="0" rx="5" ry="5" width="140" height="7" />
+                      <rect
+                        x="45"
+                        y="13"
+                        rx="5"
+                        ry="5"
+                        width="100"
+                        height="7"
+                      />
+                      <rect x="45" y="26" rx="5" ry="5" width="70" height="7" />
+                    </ContentLoader>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
