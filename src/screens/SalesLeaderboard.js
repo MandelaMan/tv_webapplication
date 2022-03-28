@@ -179,9 +179,23 @@ const SalesLeaderboard = ({
           <div className="boxed">
             <div className="row">
               <div className="col-md-12">
-                <h4>Pending amount</h4>
-                <h3 className="unsuccesful">
-                  $&nbsp;{separator(targetTotal - targetAchieved)}
+                <h4>
+                  {targetAchieved > targetTotal
+                    ? "Target exceeded by"
+                    : "Pending amount"}
+                </h4>
+                <h3
+                  className={`${
+                    targetAchieved > targetTotal ? "successed" : "unsuccesful"
+                  }`}
+                >
+                  $&nbsp;
+                  {separator(
+                    targetAchieved > targetTotal
+                      ? targetAchieved - targetTotal
+                      : targetTotal - targetAchieved
+                  )}
+                  {/* $&nbsp;{ targetAchieved > targetTotal ? <>{}</> : "unsuccesful"} */}
                 </h3>
               </div>
             </div>

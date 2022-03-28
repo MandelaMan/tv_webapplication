@@ -1,6 +1,5 @@
 import React from "react";
 import ProfilePic from "./reusables/ProfilePic";
-// import { VectorMap } from "react-jvectormap";
 import ClosedBusiness from "./charts/ClosedBusiness";
 import trophy from "../images/icons/trophy.png";
 import { separator, remainingDays } from "../functions/helpers";
@@ -152,9 +151,13 @@ const BusinessDevelopment = ({
           <div className="row achvd-paid">
             <div className="col-md-12">
               <h2>
-                <u>Pending</u>
+                <u>Pending amount</u>
               </h2>
-              <h1 className="unsuccesful">
+              <h1
+                className={`${
+                  targetTotal - targetAchieved > 1 ? "unsuccesful" : "successed"
+                }`}
+              >
                 $&nbsp;{separator(targetTotal - targetAchieved)}
               </h1>
             </div>
