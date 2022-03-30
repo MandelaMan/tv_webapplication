@@ -11,7 +11,7 @@ import Slider from "react-slick";
 // import Birthday from "./screens/Birthday";
 
 import SalesLeaderboard from "./screens/SalesLeaderboard";
-import Announcments from "./screens/Announcments";
+// import Announcments from "./screens/Announcments";
 
 const App = () => {
   const [loading, setloading] = useState(true);
@@ -157,9 +157,9 @@ const App = () => {
             />
           </div>
         </div>
-        <div className="slide-screen">
+        {/* <div className="slide-screen">
           <Announcments />
-        </div>
+        </div> */}
       </Slider>
     </div>
   );

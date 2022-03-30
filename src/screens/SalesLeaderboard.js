@@ -212,14 +212,14 @@ const SalesLeaderboard = ({
                   y
                 </h4>
                 <h3>
-                  {remainingDays() > 1 && (
+                  {remainingDays() > 0 && (
                     <h1 className="successed">
                       <b>
                         {remainingDays()}&nbsp;Day{remainingDays() > 1 && "s"}
                       </b>
                     </h1>
                   )}
-                  {remainingDays() < 1 && (
+                  {remainingDays() <= 0 && (
                     <h1 className="unsuccesful">
                       <b>Last day</b>
                     </h1>
