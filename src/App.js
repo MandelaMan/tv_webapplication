@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
-
 // import BusinessDevelopment from "./components/BusinessDevelopment";
 // import Brokers from "./components/Brokers";
 // import Birthdays from "./components/Birthdays";

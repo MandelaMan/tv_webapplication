@@ -207,9 +207,8 @@ const SalesLeaderboard = ({
                   {remainingDays() < 1 ? (
                     <>Target Expiry</>
                   ) : (
-                    <>Days to target expir</>
+                    <>Days to target expiry</>
                   )}
-                  y
                 </h4>
                 <h3>
                   {remainingDays() > 0 && (
