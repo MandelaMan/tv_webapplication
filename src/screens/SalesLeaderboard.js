@@ -34,13 +34,15 @@ const SalesLeaderboard = ({
     return year;
   };
 
-  const getPreviousMonth = () => {
-    const date = new Date();
-    date.setMonth(date.getMonth() - 1);
-    const previousMonth = date.toLocaleString("default", { month: "long" });
+  // const getPreviousMonth = () => {
+  //   const date = new Date();
+  //   date.setMonth(date.getMonth());
+  //   const previousMonth = date.toLocaleString("default", { month: "long" });
 
-    return previousMonth;
-  };
+  //   console.log(previousMonth);
+
+  //   return previousMonth;
+  // };
 
   // const getPreviousYear = () => {
   //   const currentYear = new Date().getFullYear(); // 2020
@@ -72,7 +74,8 @@ const SalesLeaderboard = ({
             <div className="row">
               <div className="col-md-12">
                 <h4>
-                  Top Sales Member for {getPreviousMonth()}&nbsp;
+                  Top Sales Member for February&nbsp;
+                  {/* Top Sales Member for {getPreviousMonth()}&nbsp; */}
                   {getYear()}
                 </h4>
               </div>
