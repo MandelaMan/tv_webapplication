@@ -59,7 +59,7 @@ const SalesLeaderboard = ({
           <div className="boxed">
             <div className="row">
               <div className="col-md-12">
-                <h4>Closed business chart for 2022</h4>
+                <h4>Closed business chart for {getYear()}</h4>
               </div>
             </div>
             <div className="row">
@@ -75,7 +75,7 @@ const SalesLeaderboard = ({
               <div className="col-md-12">
                 <h4>
                   Top Sales Member for {getPreviousMonth()}&nbsp;
-                  {getYear()}
+                  {getYear() - 1}
                 </h4>
               </div>
             </div>
