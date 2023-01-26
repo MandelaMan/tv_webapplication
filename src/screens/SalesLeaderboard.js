@@ -39,8 +39,6 @@ const SalesLeaderboard = ({
     date.setMonth(date.getMonth() - 1);
     const previousMonth = date.toLocaleString("default", { month: "long" });
 
-    // console.log(previousMonth);
-
     return previousMonth;
   };
 

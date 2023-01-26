@@ -108,14 +108,14 @@ const App = () => {
     fetchTargets();
     getBestPersonLastMonth();
     fetchBarChartData();
+
+    setInterval(() => {
+      slideOneData();
+    }, 1800000);
   };
 
   useEffect(() => {
     slideOneData();
-
-    // setInterval(() => {
-    //   slideOneData();
-    // }, 360000);
 
     return () => {
       // console.log("leaving after launching swiper");
