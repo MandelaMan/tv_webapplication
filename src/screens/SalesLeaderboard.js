@@ -73,7 +73,7 @@ const SalesLeaderboard = ({
               <div className="col-md-12">
                 <h4>
                   Top Sales Member for {getPreviousMonth()}&nbsp;
-                  {getYear() - 1}
+                  {getYear()}
                 </h4>
               </div>
             </div>
