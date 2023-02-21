@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
+import { useKeepAwake } from "@sayem314/react-native-keep-awake";
 // import BusinessDevelopment from "./components/BusinessDevelopment";
 // import Brokers from "./components/Brokers";
 // import Birthdays from "./components/Birthdays";
@@ -113,6 +114,8 @@ const App = () => {
       slideOneData();
     }, 1800000);
   };
+
+  useKeepAwake();
 
   useEffect(() => {
     slideOneData();
