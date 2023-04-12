@@ -54,6 +54,18 @@ const SalesLeaderboard = ({
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-4">
+          {/* <div className="boxed">
+            <div className="row">
+              <div className="col-md-12">
+                <h4>Closed business chart for {getYear()}</h4>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <ClosedBusiness monthValues={monthValues} height={300} />
+              </div>
+            </div>
+          </div> */}
           <div className="boxed">
             <div className="row">
               <div className="col-md-12">
@@ -62,7 +74,7 @@ const SalesLeaderboard = ({
             </div>
             <div className="row">
               <div className="col-md-12">
-                <ClosedBusiness monthValues={monthValues} />
+                <ClosedBusiness monthValues={monthValues} height={300} />
               </div>
             </div>
           </div>
@@ -72,74 +84,25 @@ const SalesLeaderboard = ({
             <div className="row">
               <div className="col-md-12">
                 <h4>
-                  Top Sales Member for {getPreviousMonth()}&nbsp;
-                  {getYear()}
+                  2<sup>nd</sup> Quarter {getYear()} April - June Sales Target
                 </h4>
+                <h3 className="successed">
+                  $&nbsp;{separator(targetTotal * 3)}
+                </h3>
               </div>
             </div>
-            <div className="row py-3">
-              {topPerson.amount > 0 && topPerson.paid ? (
-                <>
-                  <div className="col-md-4">
-                    <div className="top-sales-box">
-                      <ProfilePic picture={topPerson.empID} />
-                      <div className="trophy">
-                        <img src={trophy} alt="" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-8 top-sales-box-member">
-                    <h5>
-                      <u>{topPerson.name}</u>
-                    </h5>
-                    <div className="amounts">
-                      <div>
-                        <h6>Booked</h6>
-                        <p>
-                          $&nbsp;
-                          {topPerson.amount > 0
-                            ? separator(topPerson.amount)
-                            : topPerson.amount}
-                        </p>
-                      </div>
-                      <div>
-                        <h6>Amount paid</h6>
-                        <p>
-                          $&nbsp;
-                          {topPerson.paid > 0
-                            ? separator(topPerson.paid)
-                            : topPerson.paid}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="col-md-12 mx-7">
-                    <ContentLoader
-                      height={140}
-                      speed={1}
-                      backgroundColor={"#282c34"}
-                      foregroundColor={"#4e5665"}
-                      viewBox="0 0 300 60"
-                    >
-                      {/* Only SVG shapes */}
-                      <rect x="0" y="0" rx="5" ry="5" width="50" height="50" />
-                      <rect x="60" y="0" rx="5" ry="5" width="130" height="8" />
-                      <rect
-                        x="60"
-                        y="20"
-                        rx="5"
-                        ry="5"
-                        width="100"
-                        height="8"
-                      />
-                      <rect x="60" y="40" rx="5" ry="5" width="70" height="8" />
-                    </ContentLoader>
-                  </div>
-                </>
-              )}
+            <hr />
+            <div className="row">
+              <div className="col-md-6">
+                <h4>Achieved Amount</h4>
+                <h3 className="successed">$&nbsp;{separator(paidBusiness)}</h3>
+              </div>
+              <div className="col-md-6">
+                <h4>Pending Amount</h4>
+                <h3 className="unsuccesful">
+                  $&nbsp;{separator(paidBusiness)}
+                </h3>
+              </div>
             </div>
           </div>
           <div className="boxed">
@@ -229,6 +192,80 @@ const SalesLeaderboard = ({
           </div>
         </div>
         <div className="col-md-4">
+          <div className="boxed">
+            <div className="row">
+              <div className="col-md-12">
+                <h4>
+                  Top Sales Member for {getPreviousMonth()}&nbsp;
+                  {getYear()}
+                </h4>
+              </div>
+            </div>
+            <div className="row py-4">
+              {topPerson.amount > 0 && topPerson.paid ? (
+                <>
+                  <div className="col-md-4">
+                    <div className="top-sales-box">
+                      <ProfilePic picture={topPerson.empID} />
+                      <div className="trophy">
+                        <img src={trophy} alt="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-8 top-sales-box-member">
+                    <h5>
+                      <u>{topPerson.name}</u>
+                    </h5>
+                    <div className="amounts">
+                      <div>
+                        <h6>Booked</h6>
+                        <p>
+                          $&nbsp;
+                          {topPerson.amount > 0
+                            ? separator(topPerson.amount)
+                            : topPerson.amount}
+                        </p>
+                      </div>
+                      <div>
+                        <h6>Amount paid</h6>
+                        <p>
+                          $&nbsp;
+                          {topPerson.paid > 0
+                            ? separator(topPerson.paid)
+                            : topPerson.paid}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="col-md-12 mx-7">
+                    <ContentLoader
+                      height={140}
+                      speed={1}
+                      backgroundColor={"#282c34"}
+                      foregroundColor={"#4e5665"}
+                      viewBox="0 0 300 60"
+                    >
+                      {/* Only SVG shapes */}
+                      <rect x="0" y="0" rx="5" ry="5" width="50" height="50" />
+                      <rect x="60" y="0" rx="5" ry="5" width="130" height="8" />
+                      <rect
+                        x="60"
+                        y="20"
+                        rx="5"
+                        ry="5"
+                        width="100"
+                        height="8"
+                      />
+                      <rect x="60" y="40" rx="5" ry="5" width="70" height="8" />
+                    </ContentLoader>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
           <div className="boxed">
             <div className="row">
               <div className="col-md-12">
