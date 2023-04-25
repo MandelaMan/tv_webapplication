@@ -100,7 +100,7 @@ const SalesLeaderboard = ({
               <div className="col-md-6">
                 <h4>Pending Amount</h4>
                 <h3 className="unsuccesful">
-                  $&nbsp;{separator(paidBusiness)}
+                  $&nbsp;{separator(targetTotal * 3 - paidBusiness)}
                 </h3>
               </div>
             </div>
