@@ -202,7 +202,8 @@ const SalesLeaderboard = ({
               </div>
             </div>
             <div className="row py-4">
-              {topPerson.amount > 0 && topPerson.paid ? (
+              {/* {topPerson.amount > 0 && topPerson.paid ? ( */}
+              {topPerson !== null ? (
                 <>
                   <div className="col-md-4">
                     <div className="top-sales-box">

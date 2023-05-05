@@ -32,7 +32,7 @@ const App = () => {
 
   const [monthValues, setmonthValues] = useState([]);
 
-  const [topPerson, settopPerson] = useState({});
+  const [topPerson, settopPerson] = useState(null);
 
   const fetchBarChartData = () => {
     !loading && setloading(true);
@@ -73,11 +73,11 @@ const App = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        let top = data.sort((a, b) => b.paid - a.paid);
+        // let top = data.sort((a, b) => b.paid - a.paid);
 
-        top = top[0];
+        // top = top[0];
 
-        settopPerson(top);
+        settopPerson(data[0]);
 
         setloading(false);
       });
