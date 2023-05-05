@@ -34,6 +34,8 @@ const App = () => {
 
   const [topPerson, settopPerson] = useState(null);
 
+  const [quarterTotals, setQuarterTotals] = useState(null);
+
   const fetchBarChartData = () => {
     !loading && setloading(true);
 
@@ -42,6 +44,14 @@ const App = () => {
       .then((data) => {
         const amounts = data.map((item) => Math.round(item.amount));
         setmonthValues(amounts);
+
+        let april = data.filter((item) => item.MonthName === "April")[0];
+        let may = data.filter((item) => item.MonthName === "May")[0];
+        let june = data.filter((item) => item.MonthName === "April")[0];
+
+        let quarter_totals = april.amount + may.amount + june.amount;
+
+        setQuarterTotals(quarter_totals);
 
         setChartLoading(false);
 
@@ -149,6 +159,7 @@ const App = () => {
               salesMemberLoading={salesMemberLoading}
               generalSalesInfo={generalSalesInfo}
               salesMembers={salesMembers}
+              quarterTotals={quarterTotals}
               targetTotal={targetTotal}
               targetAchieved={targetAchieved}
               paidBusiness={paidBusiness}

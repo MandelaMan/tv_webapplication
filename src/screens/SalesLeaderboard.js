@@ -16,6 +16,7 @@ const SalesLeaderboard = ({
   topPerson,
   loading,
   chartLoading,
+  quarterTotals,
   salesMemberLoading,
   generalSalesInfo,
 }) => {
@@ -40,6 +41,16 @@ const SalesLeaderboard = ({
     const previousMonth = date.toLocaleString("default", { month: "long" });
 
     return previousMonth;
+  };
+
+  const pendingQuraterValue = (target, quarter_totals) => {
+    let pending;
+
+    target = target * 3;
+
+    pending = target - quarter_totals;
+
+    return pending;
   };
 
   // const getPreviousYear = () => {
@@ -95,12 +106,15 @@ const SalesLeaderboard = ({
             <div className="row">
               <div className="col-md-6">
                 <h4>Achieved Amount</h4>
-                <h3 className="successed">$&nbsp;{separator(paidBusiness)}</h3>
+                <h3 className="successed">
+                  $&nbsp;{quarterTotals ? separator(quarterTotals) : 0}
+                </h3>
               </div>
               <div className="col-md-6">
                 <h4>Pending Amount</h4>
                 <h3 className="unsuccesful">
-                  $&nbsp;{separator(targetTotal * 3 - paidBusiness)}
+                  $&nbsp;
+                  {separator(pendingQuraterValue(targetTotal, quarterTotals))}
                 </h3>
               </div>
             </div>
