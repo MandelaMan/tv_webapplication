@@ -95,7 +95,8 @@ const SalesLeaderboard = ({
             <div className="row">
               <div className="col-md-12">
                 <h4>
-                  2<sup>nd</sup> Quarter {getYear()} April - June Sales Target
+                  4<sup>th</sup> Quarter {getYear()} September - December Sales
+                  Target
                 </h4>
                 <h3 className="successed">
                   $&nbsp;{separator(targetTotal * 3)}
@@ -285,8 +286,7 @@ const SalesLeaderboard = ({
             <div className="row">
               <div className="col-md-12">
                 <h4>
-                  Business Development Individual Target for {getMonthName()}{" "}
-                  {getYear()}
+                  BD Team Individual Target for {getMonthName()} {getYear()}
                 </h4>
               </div>
             </div>
