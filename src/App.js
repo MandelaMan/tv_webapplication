@@ -45,11 +45,11 @@ const App = () => {
         const amounts = data.map((item) => Math.round(item.amount));
         setmonthValues(amounts);
 
-        let april = data.filter((item) => item.MonthName === "April")[0];
-        let may = data.filter((item) => item.MonthName === "May")[0];
-        let june = data.filter((item) => item.MonthName === "April")[0];
+        let january = data.filter((item) => item.MonthName === "January")[0];
+        let february = data.filter((item) => item.MonthName === "February")[0];
+        let march = data.filter((item) => item.MonthName === "March")[0];
 
-        let quarter_totals = april.amount + may.amount + june.amount;
+        let quarter_totals = january.amount + february.amount + march.amount;
 
         setQuarterTotals(quarter_totals);
 
