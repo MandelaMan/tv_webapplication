@@ -95,7 +95,7 @@ const SalesLeaderboard = ({
             <div className="row">
               <div className="col-md-12">
                 <h4>
-                  4<sup>th</sup> Quarter {getYear()} September - December Sales
+                  1<sup>st</sup> Quarter {getYear()} January - April Sales
                   Target
                 </h4>
                 <h3 className="successed">
