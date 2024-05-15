@@ -45,6 +45,7 @@ const App = () => {
         const amounts = data.map((item) => Math.round(item.amount));
         setmonthValues(amounts);
 
+        // Code to get quarter totals
         let january = data.filter((item) => item.MonthName === "January")[0];
         let february = data.filter((item) => item.MonthName === "February")[0];
         let march = data.filter((item) => item.MonthName === "March")[0];

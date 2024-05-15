@@ -77,6 +77,34 @@ const SalesLeaderboard = ({
               </div>
             </div>
           </div> */}
+          {/* <div className="boxed">
+            <div className="row">
+              <div className="col-md-12">
+                <h4>
+                  Previous Quarter {getYear()} January - March Sales Target
+                </h4>
+                <h3 className="successed">
+                  $&nbsp;{separator(targetTotal * 3)}
+                </h3>
+              </div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col-md-6">
+                <h4>Achieved Amount</h4>
+                <h3 className="successed">
+                  $&nbsp;{quarterTotals ? separator(quarterTotals) : 0}
+                </h3>
+              </div>
+              <div className="col-md-6">
+                <h4>Pending Amount</h4>
+                <h3 className="unsuccesful">
+                  $&nbsp;
+                  {separator(pendingQuraterValue(targetTotal, quarterTotals))}
+                </h3>
+              </div>
+            </div>
+          </div> */}
           <div className="boxed">
             <div className="row">
               <div className="col-md-12">
@@ -95,8 +123,7 @@ const SalesLeaderboard = ({
             <div className="row">
               <div className="col-md-12">
                 <h4>
-                  1<sup>st</sup> Quarter {getYear()} January - March Sales
-                  Target
+                  2<sup>nd</sup> Quarter {getYear()} April - June Sales Target
                 </h4>
                 <h3 className="successed">
                   $&nbsp;{separator(targetTotal * 3)}
@@ -229,9 +256,7 @@ const SalesLeaderboard = ({
                     </div>
                   </div>
                   <div className="col-md-8 top-sales-box-member">
-                    <h5>
-                      <u>{topPerson.name}</u>
-                    </h5>
+                    <h5>{topPerson.name}</h5>
                     <div className="amounts">
                       <div>
                         <h6>Booked</h6>
